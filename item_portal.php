@@ -38,7 +38,13 @@
                         $htmlTable .= "<td>" . $row['qyt'] . "</td>";
                         $htmlTable .= "<td>" . $row['price'] . "</td>";
                         $htmlTable .= "<td>" . $row['totalprice'] . "</td>";
-                        $htmlTable .= "<td>" . '<a href="" class="btn btn-info mx-3">Update</a>' . '<a href="" class="btn btn-danger">Delete</a>' . "</td>";
+
+                        $updateLink = "items_reg.php?" . "id=" . $row["itemid"] . "&name= " . $row["itemname"] . "&qyt=" . $row["qyt"] . "&price=" . $row['price'] . "&total=" . $row["totalprice"];
+
+                        $deleteLink = "operation.php?" . "id=" . $row["itemid"];
+
+
+                        $htmlTable .= "<td>" . '<a href="' . $updateLink . '" class="btn btn-info mx-3">Update</a>' . '<a href="' . $deleteLink . '" class="btn btn-danger">Delete</a>' . "</td>";
                         $htmlTable .= "</tr>";
                     }
                     echo $htmlTable;

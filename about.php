@@ -13,6 +13,14 @@
     <?php include("header.php") ?>
     <div class="main">
         <h1 class="text-uppercase">About us</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <img src="./imgs//logo.jpg" alt="" class="border border-1 p-4 rounded-circle shadow-lg">
+            <div class="m-3 text-center">
+                <h2>Sahan Electronics</h2>
+                <p>We are a leading electronics company specializing in high-quality products. Our mission is to provide customers with the best possible products at affordable prices.</p>
+                <a href="check.php" class="btn btn-primary">Learn more</a>
+            </div>
+        </div>
     </div>
 
     <?php include("footer.php") ?>

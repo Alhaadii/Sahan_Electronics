@@ -1,3 +1,4 @@
+<?php include("conn.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,29 +11,35 @@
 </head>
 
 <body>
-    <?php include("header.php") ?>
+    <?php include("header.php");
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+        $name = $_GET["name"];
+        $qyt = intval($_GET["qyt"]);
+        $price = floatval($_GET["price"]);
+    } else {
+        $id = "";
+        $name = "";
+        $qyt = "";
+        $price = "";
+    }
+
+    ?>
     <div class="main">
         <h1 class="text-uppercase text-light p-2 text-center bg-secondary ">Register Item</h1>
         <div class="row justify-content-center">
-            <div class="shadow-lg opacity p-4 mt-2">
-                <form action="operation.php" method="post">
-                    <input type="hidden" name="operation" value="add">
-                    <div class="form-group">
-                        <label for="itemName">Item Name</label>
-                        <input type="text" class="form-control" id="itemName" name="itemName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="itemQuantity">Item Quantity</label>
-                        <input type="number" class="form-control" id="itemQuantity" name="itemQuantity" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="itemPrice">Item Price</label>
-                        <input type="number" class="form-control" id="itemPrice" name="itemPrice" required>
-                    </div>
-                    <button type="reset" class="btn btn-secondary mt-2 float-start">Reset</button>
+            <div class="">
+                <form action="operation.php" method="post" class="p-4 shadow-lg">
+                    <input class="mt-2 form-control" type="text" name="id" id="id" placeholder="Item Id" value="<?php echo $id ?>">
+
+                    <input class="mt-2 form-control" type="text" name="name" id="name" placeholder="Item Name" value="<?php echo $name ?>">
+
+                    <input class=" mt-2 form-control" type="number" name="qyt" id="qyt" placeholder="Item Quantity" value="<?php echo $qyt ?>">
+                    <input class=" mt-2 form-control" type="number" name="price" id="price" placeholder="Item Price" value="<?php echo $price ?>">
+                    <button class=" btn btn-primary mt-2" type="reset">clear</button>
                     <div class="float-end">
-                        <button type="submit" class="btn btn-info mt-2  mx-2">Save changes</button>
-                        <button type="submit" class="btn btn-success mt-2 ">Edit</button>
+                        <button class="btn btn-success mt-2" type="submit" name="save">Save changes</button>
+                        <button class="btn btn-info mt-2" type="submit" name="edit">Update</button>
                     </div>
                 </form>
             </div>

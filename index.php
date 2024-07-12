@@ -23,6 +23,7 @@
                         <button class="btn btn-primary btn-lg font-monospace w-100" name="submit" type="submit">
                             Login
                         </button>
+                        <a class="d-block text-center" href="users.php">register a username</a>
                     </form>
                 </div>
             </div>
