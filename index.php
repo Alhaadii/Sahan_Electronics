@@ -19,7 +19,7 @@
                     <h1 class="text-dark font-monospace my-3 text-center">Login</h1>
                     <form action="operation.php" method="post">
                         <input type="text" placeholder="User Name" class="form-control p-3 opacity-25 font-monospace w-100 mb-2" name="user" id="" />
-                        <input type="text" placeholder="Password" class="form-control p-3 opacity-25 font-monospace w-100 mb-2" name="pass" id="" />
+                        <input type="password" placeholder="Password" class="form-control p-3 opacity-25 font-monospace w-100 mb-2" name="pass" id="" />
                         <button class="btn btn-primary btn-lg font-monospace w-100" name="submit" type="submit">
                             Login
                         </button>

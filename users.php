@@ -1,3 +1,4 @@
+<?php include("conn.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,50 @@
 
 <body>
     <div class="container">
-        <h1>Welcome to user Registeration page</h1>
+        <h1 class="text-uppercase bg-info p-2 text-center"> Registeration page</h1>
+        <div class="mt-2 row justify-content-center align-items-center">
+            <div class="col-6 shadow-lg p-5">
+                <form action="operation.php" method="post">
+                    <div class="mb-3">
+                        <?php
+
+                        $sql = "SELECT * FROM USERS";
+                        $result = $connection->query($sql);
+                        if ($result) {
+                            while ($row = $result->fetch_assoc()) {
+                                $id = $row['id'] + 1;
+                        ?>
+                                <input type="hidden" readonly class="form-control" name="id" id="id" value="<?php echo $id; ?>">
+
+                        <?php
+                            }
+                        } else {
+                            echo "Error: " . $connection->error;
+                        }
+
+
+                        ?>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" name="register" class="btn btn-primary d-block w-100 btn-lg">Register</button>
+                    <a class="d-block text-center" href="index.php">Already have an account</a>
+
+                </form>
+            </div>
+        </div>
     </div>
 
 

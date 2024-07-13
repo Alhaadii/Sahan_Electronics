@@ -7,7 +7,8 @@ if (isset($_POST["submit"])) {
     $name = $_POST["user"];
     $password = $_POST["pass"];
 
-    $sqlQuery = "Select *from users where username = '$name' and password = '$password' ";
+    $sqlQuery = "SELECT username,password from users WHERE username='$name' and password='$password';";
+
     $result = $connection->query($sqlQuery);
 
     if ($result->num_rows > 0) {
@@ -63,5 +64,21 @@ if (isset($_GET["id"])) {
         header("Location: item_portal.php");
     } else {
         echo "Error" . $connection->error;
+    }
+}
+
+if (isset($_POST["register"])) {
+    $userid = $_POST["id"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $email = $_POST["email"];
+    $comfirmPass  = $_POST["confirmPassword"];
+    $sql = "INSERT INTO users VALUES ($userid,'$username','$email','$password','$comfirmPass')";
+    $result = $connection->query($sql);
+    if ($result) {
+        echo "Registration successful!";
+        header("Location: index.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
     }
 }
